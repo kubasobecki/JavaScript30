@@ -191,11 +191,9 @@
                 'truck'
             ];
             const carSums = data.reduce((acc, word) => {
-                const currCount = acc[word] ?? 0;
-                return {
-                    ...acc,
-                    [word]: currCount + 1
-                };
+                if (!acc[word]) acc[word] = 0;
+                acc[word]++;
+                return acc;
             }, {});
             console.log(carSums);
         </script>
