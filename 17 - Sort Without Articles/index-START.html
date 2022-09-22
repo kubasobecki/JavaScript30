@@ -106,6 +106,20 @@
             console.log(smartSort(bands, exceptions));
             console.log(smartSort2(bands, exceptions));
             console.log(bands);
+
+            // Place sorted bands in the DOM
+            const sortedBands = smartSort(bands, exceptions);
+            const bandsList = document.querySelector('#bands');
+
+            // Generate html using .map()
+            const html = sortedBands.map(band => `<li>${band}</li>`).join('');
+
+            // Generate html using .reduce()
+            const html2 = sortedBands.reduce(
+                (html, band) => html + `<li>${band}</li>`,
+                ''
+            );
+            bandsList.innerHTML = html2;
         </script>
     </body>
 </html>
