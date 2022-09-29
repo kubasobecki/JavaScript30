@@ -36,7 +36,8 @@ function showMole() {
     }, time);
 }
 
-function hit() {
+function hit(e) {
+    if (e.isTrusted) return; // cheater!
     score++;
     updateScore();
 }
